@@ -1,0 +1,33 @@
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        canvas:
+            Color:
+                rgba: (0.9, 0.9, 0.95, 1)  # Fondo azul claro
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        TextInput:
+            id: search_input
+            hint_text: "Buscar por palabra, frase o título..."
+            size_hint_y: 0.1
+            background_color: (1, 1, 1, 1)
+            foreground_color: (0, 0, 0, 1)
+
+        Button:
+            text: "Buscar ahora"
+            size_hint_y: 0.1
+            background_color: (0.2, 0.6, 1, 1)  # Botón azul
+            on_press: root.buscar()
+
+        ScrollView:
+            GridLayout:
+                id: resultados
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 15
+                padding: 10
